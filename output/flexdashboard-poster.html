@@ -17,41 +17,67 @@
 <link rel="icon" href="data:image/x-icon;" type="image/x-icon">
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <script type="text/javascript">
@@ -59,380 +85,49 @@ window.FlexDashboardComponents = [];
 </script>
 
 <script id="flexdashboard-navbar" type="application/json">
-[{"icon":"fa-share-alt","items":[{"title":"Twitter","icon":"fa-twitter"},{"title":"Facebook","icon":"fa-facebook"},{"title":"Google+","icon":"fa-google-plus"},{"title":"LinkedIn","icon":"fa-linkedin"},{"title":"Pinterest","icon":"fa-pinterest"}]},{"title":"Source Code","icon":"fa-code","href":"source_embed","align":"right"}]
+[{"icon":"fa-share-alt","items":[{"title":"Twitter","icon":"fa-twitter"},{"title":"Facebook","icon":"fa-facebook"},{"title":"LinkedIn","icon":"fa-linkedin"},{"title":"Pinterest","icon":"fa-pinterest"}]},{"title":"Source Code","icon":"fa-code","href":"source_embed","align":"right"}]
 </script>
-<script src="flexdashboard-poster_files/jquery-1.11.3/jquery.min.js"></script>
+<script src="flexdashboard-poster_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="flexdashboard-poster_files/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="flexdashboard-poster_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="flexdashboard-poster_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="flexdashboard-poster_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="flexdashboard-poster_files/stickytableheaders-0.1.19/jquery.stickytableheaders.min.js"></script>
-<link href="flexdashboard-poster_files/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="flexdashboard-poster_files/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="flexdashboard-poster_files/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="flexdashboard-poster_files/value-box-accent-static-0.6.0/theme-cosmo-value-box.css" rel="stylesheet" />
 <link href="flexdashboard-poster_files/featherlight-1.3.5/featherlight.min.css" rel="stylesheet" />
 <script src="flexdashboard-poster_files/featherlight-1.3.5/featherlight.min.js"></script>
 <link href="flexdashboard-poster_files/prism-1.4.1/prism.css" rel="stylesheet" />
 <script src="flexdashboard-poster_files/prism-1.4.1/prism.js"></script>
+<link href="flexdashboard-poster_files/flexdashboard-css-0.6.0/flexdashboard.min.css" rel="stylesheet" />
+<link href="flexdashboard-poster_files/flexdashboard-css-0.6.0/theme-cosmo.css" rel="stylesheet" />
+<script src="flexdashboard-poster_files/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="flexdashboard-poster_files/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="flexdashboard-poster_files/leaflet-1.3.1/leaflet.js"></script>
+<link href="flexdashboard-poster_files/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="flexdashboard-poster_files/proj4-2.6.2/proj4.min.js"></script>
+<script src="flexdashboard-poster_files/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="flexdashboard-poster_files/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="flexdashboard-poster_files/leaflet-binding-2.1.1/leaflet.js"></script>
+<link href="flexdashboard-poster_files/minichart-0.2.2/minicharts.css" rel="stylesheet" />
+<script src="flexdashboard-poster_files/minichart-0.2.2/leaflet.minicharts.min.js"></script>
 <style type="text/css">
-
 /*
- Dashboard CSS from Keen IO Dashboards
- (https://github.com/keen/dashboards)
+  CSS for flexdashboard.js' use of Sly(). The sizing/position of this CSS needs to be
+  applied _before_ flexdashboard.js initializes, which is why this CSS has been pulled
+  out from flexdashboard.scss and inlined in the document's head.
 */
-
-body {
-  background: #f2f2f2;
-  padding: 60px 0 0 8px; /* padding-top overridden by theme */
-}
-
-body hr {
-  border-color: #d7d7d7;
-  margin: 10px 0;
-}
-
-.navbar-inverse .navbar-nav > li > a,
-.navbar .navbar-brand {
-  text-decoration: none;
-}
-
-.navbar-logo {
-  margin-top: 1px;
-}
-
-.navbar-logo img {
-  margin-right: 12px;
-}
-
-.navbar-author {
-  margin-left: 10px;
-  font-size: 15px;
-}
-
-.navbar .dropdown-menu .fa {
-  min-width: 20px;
-}
-
-.navbar .dropdown-menu {
-  min-width: 150px;
-  max-height: 500px;
-  overflow: auto;
-}
-
-.chart-wrapper,
-.nav-tabs-custom,
-.sbframe-commentary
-{
-  background: #fff;
-  border: 1px solid #e2e2e2;
-  border-radius: 3px;
-  margin-bottom: 8px;
-  margin-right: 8px;
-}
-
-.chart-title {
-  border-bottom: 1px solid #d7d7d7;
-  color: #666;
-  font-size: 14px;
-  font-weight: 300;
-  padding: 7px 10px 4px;
-}
-
-.chart-wrapper .chart-title:empty {
-  display: none;
-}
-
-.chart-wrapper .chart-stage {
-  overflow: hidden;
-  padding: 5px 10px;
-  position: relative;
-}
-
-.chart-wrapper .chart-notes {
-  background: #fbfbfb;
-  border-top: 1px solid #e2e2e2;
-  color: #808080;
-  font-size: 12px;
-  padding: 8px 10px 5px;
-}
-
-/*
- CSS for handling flexbox layout
-*/
-
-#dashboard-container {
-  visibility: hidden;
-}
-
-.tab-content>.dashboard-page-wrapper.active {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.dashboard-page-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.dashboard-row-orientation {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.dashboard-row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-.dashboard-row-flex {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-.dashboard-column-orientation {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-.dashboard-column {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.chart-wrapper-flex {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.chart-stage-flex {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  position: relative;
-}
-
-.chart-shim {
-  position: absolute;
-  left: 8px; top: 8px; right: 8px; bottom: 8px;
-}
-
-.no-padding .chart-shim {
-  left: 0; top: 0; right: 0; bottom: 0;
-}
-
-.flowing-content-shim {
-  overflow: auto;
-  left: 0; top: 0; right: 0; bottom: 0;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-.flowing-content-container {
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
-
-.chart-stage .table-bordered {
-  border: none;
-}
-
-.chart-stage .table-bordered > tbody > tr > th,
-.chart-stage .table-bordered > tfoot > tr > th,
-.chart-stage .table-bordered > tbody > tr > td,
-.chart-stage .table-bordered > tfoot > tr > td {
-  border: none;
-}
-
-.chart-stage .table-bordered > tbody > tr > td {
-  border-top: 1px solid #dddddd;
-}
-
-.chart-stage .table-bordered > thead > tr > th {
-  border: none;
-  border-bottom: 2px solid #dddddd;
-}
-
-.bootstrap-table table>thead {
-  background-color: #fff;
-}
-
-.bootstrap-table table.data,
-.bootstrap-table table.shiny-table {
-  width: inherit !important;
-}
-
-.bootstrap-table table.data>tbody>tr>th,
-.bootstrap-table table.shiny-table>tbody>tr>th {
-  border-top: none;
-  border-bottom: 2px solid #dddddd;
-  padding: 5px;
-}
-
-.bootstrap-table .data td[align=right] {
-  font-family: inherit;
-}
-
-.chart-wrapper form {
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-.shiny-input-container label {
-  font-weight: normal;
-}
-
-.chart-stage .html-widget {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-.chart-stage .html-widget-static-bound {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-.chart-stage .shiny-bound-output {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-/* Omit display of empty paragraphs */
-
-.chart-shim>p:empty {
-  display: none;
-}
-
-.chart-stage>p:empty {
-  display: none;
-}
-
-/* Omit display of special knitr options div*/
-
-.chart-stage .knitr-options {
-  display: none;
-}
-
-/* Automatically resizing images */
-
-.image-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 0;
-}
-
-.image-container img {
-  opacity: 0;
-  overflow: hidden;
-}
-
-/* Value box */
-
-.value-box {
-  border-radius: 2px;
-  position: relative;
-  display: block;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-}
-
-.value-box > .inner {
-  padding: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.value-box .value {
-  font-size: 38px;
-  font-weight: bold;
-  margin: 0 0 3px 0;
-  white-space: nowrap;
-  padding: 0;
-}
-
-.value-box .caption {
-  font-size: 15px;
-}
-.value-box .caption > small {
-  display: block;
-  font-size: 13px;
-  margin-top: 5px;
-}
-
-.value-box .icon i {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 80px;
-  color: rgba(0, 0, 0, 0.15);
-}
-
-.linked-value:hover {
-  cursor: pointer;
-}
-
-.value-box.linked-value:hover {
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
-}
-
-/* STORYBOARD */
 
 .storyboard-nav button {
   background: transparent;
@@ -457,7 +152,6 @@ body hr {
   float: left;
   width: 2%;
   height: 120px;
-  font-size: 50px;
 }
 
 .storyboard-nav .sbprev {
@@ -493,12 +187,7 @@ body hr {
   height: 100%;
   padding: 10px 10px 10px 10px;
   margin-right: 8px;
-  background: #fff;
-  border: 1px solid #e2e2e2;
-  border-radius: 3px;
-  color: #3a3c47;
   text-align: left;
-  font-size: 14px;
   cursor: pointer;
 }
 
@@ -506,15 +195,8 @@ body hr {
   margin-right: 0px;
 }
 
-.storyboard-nav .sbframelist ul li.active {
-  color: #fff;
-  background: #B8B8B8;
-}
-
 .sbframe-commentary {
   width: 300px;
-  background: #fbfbfb;
-  font-size: 14px;
 }
 
 .sbframe-commentary ul {
@@ -528,297 +210,6 @@ body hr {
 .sbframe:not(.active) {
   display: none;
 }
-
-/* NAV TABS */
-
-.nav-tabs-custom > .nav-tabs {
-  margin: 0;
-  border-bottom: 1px solid #d7d7d7;
-  color: #666;
-  font-size: 14px;
-  font-weight: 300;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
-}
-.nav-tabs-custom > .nav-tabs > li {
-  border-top: 3px solid transparent;
-  margin-bottom: -1px;
-  margin-right: 5px;
-}
-.nav-tabs-custom > .nav-tabs > li > a,
-.nav-tabs-custom > .nav-tabs > li > a:active {
-  color: #666;
-  font-weight: 300;
-  font-size: 14px;
-  border-radius: 0;
-  padding: 3px 10px 5px;
-  text-transform: none;
-}
-
-.nav-tabs-custom > .nav-tabs > li:not(.active) > a {
-  border-bottom-color: transparent;
-}
-
-.nav-tabs-custom > .nav-tabs > li > a.text-muted {
-  color: #999;
-}
-.nav-tabs-custom > .nav-tabs > li > a,
-.nav-tabs-custom > .nav-tabs > li > a:hover {
-  background: transparent;
-  margin: 0;
-}
-.nav-tabs-custom > .nav-tabs > li > a:hover {
-  color: #999;
-}
-.nav-tabs-custom > .nav-tabs > li:not(.active) > a:hover,
-.nav-tabs-custom > .nav-tabs > li:not(.active) > a:focus,
-.nav-tabs-custom > .nav-tabs > li:not(.active) > a:active {
-  border-color: transparent;
-}
-.nav-tabs-custom > .nav-tabs > li.active {
-  border-top-color: #3c8dbc;
-}
-.nav-tabs-custom > .nav-tabs > li.active > a,
-.nav-tabs-custom > .nav-tabs > li.active:hover > a {
-  background-color: #fff;
-  color: #666;
-}
-.nav-tabs-custom > .nav-tabs > li.active > a {
-  border-top-color: transparent;
-  border-left-color: #d7d7d7;
-  border-right-color: #d7d7d7;
-}
-.nav-tabs-custom > .nav-tabs > li:first-of-type {
-  margin-left: 0;
-}
-.nav-tabs-custom > .nav-tabs > li:first-of-type.active > a {
-  border-left-color: transparent;
-}
-.nav-tabs-custom > .nav-tabs.pull-right {
-  float: none !important;
-}
-.nav-tabs-custom > .nav-tabs.pull-right > li {
-  float: right;
-}
-.nav-tabs-custom > .nav-tabs.pull-right > li:first-of-type {
-  margin-right: 0;
-}
-.nav-tabs-custom > .nav-tabs.pull-right > li:first-of-type > a {
-  border-left-width: 1px;
-}
-.nav-tabs-custom > .nav-tabs.pull-right > li:first-of-type.active > a {
-  border-left-color: #d7d7d7;
-  border-right-color: transparent;
-}
-.nav-tabs-custom > .nav-tabs > li.header {
-  line-height: 35px;
-  padding: 0 10px;
-  font-size: 20px;
-  color: #666;
-}
-.nav-tabs-custom > .nav-tabs > li.header > .fa,
-.nav-tabs-custom > .nav-tabs > li.header > .glyphicon,
-.nav-tabs-custom > .nav-tabs > li.header > .ion {
-  margin-right: 5px;
-}
-.nav-tabs-custom > .tab-content {
-  background: #fff;
-  padding: 0;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.nav-tabs-custom > .tab-content > .chart-wrapper {
-  background: #fff;
-  border: none;
-  margin: 0;
-}
-
-
-.nav-tabs-custom > .tab-content > .active {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.nav-tabs-custom .dropdown.open > a:active,
-.nav-tabs-custom .dropdown.open > a:focus {
-  background: transparent;
-  color: #999;
-}
-
-
-@media (max-width: 767px) {
-  .value-box {
-    text-align: center;
-    margin-right: 8px;
-  }
-  .value-box .icon {
-    display: none;
-  }
-}
-
-/* Fixed position sidebar */
-
-.section.sidebar {
-  position: fixed;
-  top: 51px; /* overridden by theme */
-  left: 0;
-  bottom: 0;
-  border-right: 1px solid #e2e2e2;
-  background-color: white; /* overridden by theme */
-  padding-left: 10px;
-  padding-right: 10px;
-  visibility: hidden;
-  overflow: auto;
-}
-
-.section.sidebar form p:first-child {
-  margin-top: 10px;
-}
-
-/* Embedded source code */
-
-#flexdashboard-source-code {
-  display: none;
-}
-
-.featherlight-content #flexdashboard-source-code {
-  display: inline-block;
-}
-
-.featherlight-content {
-  width: 80%;
-  max-width: 800px;
-  padding: 0 !important;
-  border-bottom: none !important;
-}
-
-.featherlight:last-of-type {
-  background: rgba(0, 0, 0, 0.7);
-}
-
-.featherlight-inner {
-  width: 100%;
-}
-
-.featherlight-content pre {
-  margin: 0;
-  border: 0;
-  background: #fff;
-  font-size: 12px;
-}
-
-.unselectable {
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: -moz-none;
-  -o-user-select: none;
-  user-select: none;
-}
-
-#flexdashboard-source-code code {
-  -ms-user-select: text;
-  -webkit-user-select: text;
-  -khtml-user-select: text;
-  -moz-user-select: text;
-  -o-user-select: text;
-  user-select: text;
-}
-
-/* DataTables Tweaks */
-
-.dataTables_filter input[type="search"] {
-  -webkit-appearance: searchfield;
-  outline: none;
-}
-
-.dataTables_wrapper.no-footer
-.dataTables_info {
-  padding-top: 0;
-}
-
-
-table.dataTable thead th {
-  border-bottom: 1px solid #d7d7d7;
-}
-
-.dataTables_wrapper.no-footer .dataTables_scrollBody {
-  border-bottom: 1px solid #d7d7d7;
-}
-
-/* Mobile phone only CSS */
-
-.desktop-layout div.section.mobile {
-  display: none;
-}
-
-.mobile-layout div.section.no-mobile {
-  display: none;
-}
-
-.mobile-figure {
-  display: none;
-}
-
-
-
-body {
-  padding-top: 60px;
-}
-
-.section.sidebar {
-  top: 51px;
-  background-color: rgba(39, 128, 227, 0.1);
-}
-
-.value-box {
-  color: #f9f9f9;
-}
-
-.bg-primary {
-  background-color: rgba(39, 128, 227, 0.7);
-}
-
-.storyboard-nav .sbframelist ul li.active {
-  background-color: rgba(39, 128, 227, 0.7);
-}
-
-.nav-tabs-custom > .nav-tabs > li.active {
-  border-top-color: rgba(39, 128, 227, 0.7);
-}
-
-.bg-info {
-  background-color: rgba(153, 84, 187, 0.7);
-}
-
-.bg-warning {
-  background-color: rgba(255, 117, 24, 0.7);
-}
-
-.bg-danger {
-  background-color: rgba(255, 0, 57, 0.7);
-}
-
-.bg-success {
-  background-color: rgba(63, 182, 24, 0.7);
-}
-
-.chart-title {
-  font-weight: 500;
-}
-
-.nav-tabs-custom > .nav-tabs > li > a,
-.nav-tabs-custom > .nav-tabs > li > a:active {
-  font-weight: 500;
-}
-
 @media only screen and (min-width: 768px) {
 html, body {
   height: 100%;
@@ -840,13 +231,7 @@ html, body {
 <div class="container-fluid">
 <div class="navbar-header">
 
-<button id="navbar-button" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-</button>
-
-<span class="navbar-logo pull-left">
+<span class="navbar-logo">
   
 </span>
 <span class="navbar-brand">
@@ -854,6 +239,12 @@ html, body {
   <span class="navbar-author">
         </span>
 </span>
+
+<button id="navbar-button" type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
 
 </div>
 <div id="navbar" class="navbar-collapse collapse">
@@ -887,7 +278,8 @@ var FlexDashboard = (function () {
       defaultFigWidthMobile: 360,
       defaultFigHeightMobile: 461,
       isMobile: false,
-      isPortrait: false
+      isPortrait: false,
+      resize_reload: true
     });
   };
 
@@ -940,9 +332,9 @@ var FlexDashboard = (function () {
         globalSidebar.addClass('level3');
         var h1 = globalSidebar.children('h1');
         var h3 = $('<h3></h3>');
-        h3.html(h1.html());
+        h3.append(h1.contents());
         h3.insertBefore(h1);
-        h1.remove();
+        h1.detach();
 
         // move it into the first page
         var page = dashboardContainer.find('.section.level1').first();
@@ -1007,16 +399,29 @@ var FlexDashboard = (function () {
     initPrismHighlighting();
 
     // record mobile and orientation state then register a handler
-    // to refresh if it changes
+    // to refresh if resize_reload is set to true and it changes
     _options.isMobile = isMobilePhone();
     _options.isPortrait = isPortrait();
-    $(window).on('resize', function() {
-      if (_options.isMobile !== isMobilePhone() ||
-          _options.isPortrait !== isPortrait()) {
-        window.location.reload();
+    if (_options.resize_reload) {
+      $(window).on('resize', function() {
+        if (_options.isMobile !== isMobilePhone() ||
+            _options.isPortrait !== isPortrait()) {
+          window.location.reload();
+        }
+      });
+    } else {
+      // if in desktop mode and resizing to mobile, make sure the heights are 100%
+      // This enforces what `fillpage.css` does for "wider" pages.
+      // Since we are not reloading once the page becomes small, we need to force the height to 100%
+      // This is a new situation introduced when `_options.resize_reload` is `false`
+      if (! _options.isMobile) {
+        // only add if `fillpage.css` was added in the first place
+        if (_options.fillPage) {
+          // fillpage.css
+          $("html,body,#dashboard").css("height", "100%");
+        }
       }
-    });
-
+    }
     // trigger layoutcomplete event
     dashboardContainer.trigger('flexdashboard:layoutcomplete');
   }
@@ -1058,11 +463,13 @@ var FlexDashboard = (function () {
         for (var j = 0; j<item.items.length; j++) {
           var subItem = item.items[j];
           var li = $('<li></li>');
-          li.append(navbarLink(subItem.icon, subItem.title, subItem.href, subItem.target));
+          var a = navbarLink(subItem.icon, subItem.title, subItem.href, subItem.target);
+          a.removeClass("nav-link").addClass("dropdown-item");
+          li.append(a);
           menu.append(li);
         }
       } else {
-        var li = $('<li></li>');
+        var li = $('<li class="nav-item"></li>');
         li.append(navbarLink(item.icon, item.title, item.href, item.target));
         container.append(li);
       }
@@ -1077,7 +484,7 @@ var FlexDashboard = (function () {
     if (existingMenu.length > 0) {
       return existingMenu.children('ul');
     } else {
-      var li = $('<li></li>');
+      var li = $('<li class="nav-item"></li>');
       if (id)
         li.attr('id', id);
       li.addClass('dropdown');
@@ -1090,6 +497,7 @@ var FlexDashboard = (function () {
       var a = navbarLink(icon, title, "#");
       a.addClass('dropdown-toggle');
       a.attr('data-toggle', 'dropdown');
+      a.attr('data-bs-toggle', 'dropdown');
       a.attr('role', 'button');
       a.attr('aria-expanded', 'false');
       li.append(a);
@@ -1128,10 +536,10 @@ var FlexDashboard = (function () {
     if (active)
       wrapper.addClass('active');
 
-    // get a reference to the h1, discover it's id and title, then remove it
+    // get a reference to the h1, discover its inner contens, then detach it
     var h1 = wrapper.find('h1').first();
-    var title = h1.html();
-    h1.remove();
+    var title = h1.contents();
+    h1.detach();
 
     // create a navbar item
     var li = $('<li></li>');
@@ -1144,8 +552,10 @@ var FlexDashboard = (function () {
     if (navmenu) {
       var menuId = navmenu.replace(/\s+/g, '');
       var menu = navbarMenu(menuId, null, navmenu, container);
+      li.find("> a").removeClass("nav-link").addClass("dropdown-item");
       menu.append(li);
     } else {
+      li.addClass("nav-item")
       container.append(li);
     }
 
@@ -1156,12 +566,19 @@ var FlexDashboard = (function () {
 
   function navbarLink(icon, title, href, target) {
 
-    var a = $('<a></a>');
+    var a = $('<a class="nav-link"></a>');
     if (icon) {
 
       // get the name of the icon set and icon
       var dashPos = icon.indexOf("-");
-      var iconSet = icon.substring(0, dashPos);
+      var iconSet = null;
+      var iconSplit = icon.split(" ");
+      if (iconSplit.length > 1) {
+        iconSet = iconSplit[0];
+        icon = iconSplit.slice(1).join(" ");
+      } else {
+        iconSet = icon.substring(0, dashPos);
+      }
       var iconName = icon.substring(dashPos + 1);
 
       // create the icon
@@ -1207,7 +624,6 @@ var FlexDashboard = (function () {
      var serviceLinks = {
       "twitter": "https://twitter.com/share?text=" + encodeURIComponent(document.title) + "&url="+encodeURIComponent(location.href),
       "facebook": "https://www.facebook.com/sharer/sharer.php?s=100&p[url]="+encodeURIComponent(location.href),
-      "google-plus": "https://plus.google.com/share?url="+encodeURIComponent(location.href),
       "linkedin": "https://www.linkedin.com/shareArticle?mini=true&url="+encodeURIComponent(location.href) + "&title=" + encodeURIComponent(document.title),
       "pinterest": "https://pinterest.com/pin/create/link/?url="+encodeURIComponent(location.href) + "&description=" + encodeURIComponent(document.title)
     };
@@ -1262,9 +678,9 @@ var FlexDashboard = (function () {
       sidebar.wrapInner('<div class="section level3"></div>');
       var h2 = sidebar.find('h2');
       var h3 = $('<h3></h3>');
-      h3.html(h2.html());
+      h3.append(h2.contents());
       h3.insertBefore(h2);
-      h2.remove();
+      h2.detach();
 
       // wipeout h2 elements then enclose them in a single h2
       var level2 = page.find('div.section.level2');
@@ -1406,8 +822,8 @@ var FlexDashboard = (function () {
       // extract the title from the h3
       var li = $('<li></li>');
       var h3 = frame.children('h3');
-      li.html(h3.html());
-      h3.remove();
+      li.append(h3.contents());
+      h3.detach();
       ul.append(li);
 
       // extract commentary
@@ -1803,7 +1219,7 @@ var FlexDashboard = (function () {
 
     // add the title
     var chartTitle = $('<div class="chart-title"></div>');
-    chartTitle.html(title);
+    chartTitle.append(title);
     chart.prepend(chartTitle);
 
     // add the notes section
@@ -1824,7 +1240,8 @@ var FlexDashboard = (function () {
 
     // check for fade option
     var fade = tabset.hasClass("tabset-fade");
-    var navClass = "nav-tabs";
+    var pills = tabset.hasClass("tabset-pills");
+    var navClass = pills ? "nav-pills" : "nav-tabs";
 
     // determine the heading level of the tabset and tabs
     var match = tabset.attr('class').match(/level(\d) /);
@@ -1845,6 +1262,7 @@ var FlexDashboard = (function () {
     $(tabs[0]).before(tabContent);
 
     // build the tabset
+    var activeTab = 0;
     tabs.each(function(i) {
 
       // get the tab div
@@ -1853,22 +1271,25 @@ var FlexDashboard = (function () {
       // get the id then sanitize it for use with bootstrap tabs
       var id = tab.attr('id');
 
+      // see if this is marked as the active tab
+      if (tab.hasClass('active'))
+        activeTab = i;
+
       // sanitize the id for use with bootstrap tabs
       id = id.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_');
       tab.attr('id', id);
 
       // get the heading element within it and grab it's text
       var heading = tab.find('h' + tabLevel + ':first');
-      var headingText = heading.html();
+      var headingDom = heading.contents();
 
       // build and append the tab list item
-      var a = $('<a role="tab" data-toggle="tab">' + headingText + '</a>');
+      var a = $('<a role="tab" data-toggle="tab" class="nav-link"></a>');
+      a.append(headingDom);
       a.attr('href', '#' + id);
       a.attr('aria-controls', id);
-      var li = $('<li role="presentation"></li>');
+      var li = $('<li role="presentation" class="nav-item"></li>');
       li.append(a);
-      if (i === 0)
-        li.attr('class', 'active');
       tabList.append(li);
 
       // set it's attributes
@@ -1878,15 +1299,17 @@ var FlexDashboard = (function () {
       tab.addClass('no-title');
       if (fade)
         tab.addClass('fade');
-      if (i === 0) {
-        tab.addClass('active');
-        if (fade)
-          tab.addClass('in');
-      }
 
       // move it into the tab content div
       tab.detach().appendTo(tabContent);
     });
+
+    // set active tab
+    $(tabList.children()[activeTab]).tab("show");
+    var active = $(tabContent.children('div.section')[activeTab]);
+    active.addClass('active');
+    if (fade)
+      active.addClass('in');
 
     // add nav-tabs-custom
     tabset.addClass('nav-tabs-custom');
@@ -1985,8 +1408,8 @@ var FlexDashboard = (function () {
     var h3 = container.children('h3').first();
     var title = '';
     if (!container.hasClass('no-title'))
-      title = h3.html();
-    h3.remove();
+      title = h3.contents();
+    h3.detach();
     return title;
   }
 
@@ -1997,11 +1420,11 @@ var FlexDashboard = (function () {
     var caption = chartContent.children('div.image-container')
                               .children('p.caption');
     if (blockquote.length) {
-      chartNotes.html(blockquote.children('p:first-child').html());
+      chartNotes.empty().append(blockquote.children('p:first-child').contents());
       blockquote.remove();
       return true;
     } else if (caption.length) {
-      chartNotes.html(caption.html());
+      chartNotes.empty().append(caption.contents());
       caption.remove();
       return true;
     } else {
@@ -2061,14 +1484,14 @@ var FlexDashboard = (function () {
   function handleLocationHash() {
 
     // restore tab/page from bookmark
-    var hash = window.location.hash;
+    var hash = window.decodeURIComponent(window.location.hash);
     if (hash.length > 0)
       $('ul.nav a[href="' + hash + '"]').tab('show');
     FlexDashboardUtils.manageActiveNavbarMenu();
 
     // navigate to a tab when the history changes
     window.addEventListener("popstate", function(e) {
-      var hash = window.location.hash;
+      var hash = window.decodeURIComponent(window.location.hash);
       var activeTab = $('ul.nav a[href="' + hash + '"]');
       if (activeTab.length) {
         activeTab.tab('show');
@@ -2128,111 +1551,11 @@ var FlexDashboard = (function () {
     }
   }
 
-
-  // get theme color
-  var themeColors = {
-    bootstrap: {
-      primary: "rgba(51, 122, 183, 0.4)",
-      info: "rgb(217, 237, 247)",
-      success: "rgb(223, 240, 216)",
-      warning: "rgb(252, 248, 227)",
-      danger: "rgb(242, 222, 222)"
-    },
-    cerulean: {
-      primary: "rgb(47, 164, 231)",
-      info: "rgb(217, 237, 247)",
-      success: "rgb(223, 240, 216)",
-      warning: "rgb(252, 248, 227)",
-      danger: "rgb(242, 222, 222)"
-    },
-    journal: {
-      primary: "rgba(235, 104, 100, 0.70)",
-      info: "rgb(217, 237, 247)",
-      success: "rgb(223, 240, 216)",
-      warning: "rgb(252, 248, 227)",
-      danger: "rgb(242, 222, 222)"
-    },
-    flatly: {
-      primary: "rgba(44, 62, 80, 0.70)",
-      info: "rgba(52, 152, 219, 0.70)",
-      success: "rgba(24, 188, 156, 0.70)",
-      warning: "rgba(243, 156, 18, 0.70)",
-      danger: "rgba(231, 76, 60, 0.70)"
-    },
-    readable: {
-      primary: "rgba(69, 130, 236, 0.4)",
-      info: "rgb(217, 237, 247)",
-      success: "rgb(223, 240, 216)",
-      warning: "rgb(252, 248, 227)",
-      danger: "rgb(242, 222, 222)"
-    },
-    spacelab: {
-      primary: "rgba(68, 110, 155, 0.25)",
-      info: "rgb(217, 237, 247)",
-      success: "rgb(223, 240, 216)",
-      warning: "rgb(252, 248, 227)",
-      danger: "rgb(242, 222, 222)"
-    },
-    united: {
-      primary: "rgba(221, 72, 20, 0.30)",
-      info: "rgb(217, 237, 247)",
-      success: "rgb(223, 240, 216)",
-      warning: "rgb(252, 248, 227)",
-      danger: "rgb(242, 222, 222)"
-    },
-    cosmo: {
-      primary: "rgba(39, 128, 227, 0.7)",
-      info: "rgba(153, 84, 187, 0.7)",
-      success: "rgba(63, 182, 24, 0.7)",
-      warning: "rgba(255, 117, 24, 0.7)",
-      danger: "rgba(255, 0, 57, 0.7)"
-    },
-    lumen: {
-      primary: "rgba(21, 140, 186, 0.70)",
-      info: "rgba(117, 202, 235, 0.90)",
-      success: "rgba(40, 182, 44, 0.70)",
-      warning: "rgba(255, 133, 27, 0.70)",
-      danger: "rgba(255, 65, 54, 0.70)"
-    },
-    paper: {
-      primary: "rgba(33, 150, 243, 0.35)",
-      info: "rgb(225, 190, 231)",
-      success: "rgb(223, 240, 216)",
-      warning: "rgb(255, 224, 178)",
-      danger: "rgb(249, 189, 187)"
-    },
-    sandstone: {
-      primary: "rgba(50, 93, 136, 0.3)",
-      info: "rgb(217, 237, 247)",
-      success: "rgb(223, 240, 216)",
-      warning: "rgb(252, 248, 227)",
-      danger: "rgb(242, 222, 222)"
-    },
-    simplex: {
-      primary: "rgba(217, 35, 15, 0.25)",
-      info: "rgb(217, 237, 247)",
-      success: "rgb(223, 240, 216)",
-      warning: "rgb(252, 248, 227)",
-      danger: "rgb(242, 222, 222)"
-    },
-    yeti: {
-      primary: "rgba(0, 140, 186, 0.298039)",
-      info: "rgb(217, 237, 247)",
-      success: "rgb(223, 240, 216)",
-      warning: "rgb(252, 248, 227)",
-      danger: "rgb(242, 222, 222)"
-    }
-  }
-  function themeColor(color) {
-    return themeColors[_options.theme][color];
-  }
-
   FlexDashboard.prototype = {
     constructor: FlexDashboard,
     init: init,
     isMobilePhone: isMobilePhone,
-    isFillPage: isFillPage,
-    themeColor: themeColor
+    isFillPage: isFillPage
   };
 
   return FlexDashboard;
@@ -2289,14 +1612,14 @@ window.FlexDashboardUtils = {
       return "";
   },
   manageActiveNavbarMenu: function () {
-    // remove active from anyone currently active
-    $('.navbar ul.nav').find('li').removeClass('active');
+    // remove active from currently active tabs
+    $('.navbar ul.nav .active').removeClass('active');
     // find the active tab
     var activeTab = $('.dashboard-page-wrapper.tab-pane.active');
     if (activeTab.length > 0) {
       var tabId = activeTab.attr('id');
       if (tabId)
-        $(".navbar ul.nav a[href='#" + tabId + "']").parents('li').addClass('active');
+        $(".navbar ul.nav a[href='#" + tabId + "']").tab("show");
     }
   }
 };
@@ -2378,16 +1701,6 @@ window.FlexDashboardComponents.push({
 window.FlexDashboardComponents.push({
   find: function(container) {
     return container.children('div[class^="shiny-"]');
-  }
-});
-
-// datatables
-window.FlexDashboardComponents.push({
-  find: function(container) {
-    return container.find('.datatables');
-  },
-  flex: function(fillPage) {
-    return fillPage;
   }
 });
 
@@ -2531,7 +1844,7 @@ window.FlexDashboardComponents.push({
 
     // caption
     var caption = $('<p class="caption"></p>');
-    caption.html(chartTitle);
+    caption.append(chartTitle);
 
     // build inner div for value box and add it
     var inner = $('<div class="inner"></div>');
@@ -2544,29 +1857,20 @@ window.FlexDashboardComponents.push({
     valueBox.append(icon);
     function setIcon(chartIcon) {
       var iconLib = "";
-      var components = chartIcon.split("-");
-      if (components.length > 1)
-        iconLib = components[0];
+      var iconSplit = chartIcon.split(" ");
+      if (iconSplit.length > 1) {
+        iconLib = iconSplit[0];
+        chartIcon = iconSplit.slice(1).join(" ");
+      } else {
+        var components = chartIcon.split("-");
+        if (components.length > 1)
+          iconLib = components[0];
+      }
       icon.children('i').attr('class', iconLib + ' ' + chartIcon);
     }
     var chartIcon = valueBox.attr('data-icon');
     if (chartIcon)
       setIcon(chartIcon);
-
-    // set color based on data-background if necessary
-    var dataBackground = valueBox.attr('data-background');
-    if (dataBackground)
-      valueBox.css('background-color', bgColor);
-    else {
-      // default to bg-primary if no other background is specified
-      if (!valueBox.hasClass('bg-primary') &&
-          !valueBox.hasClass('bg-info') &&
-          !valueBox.hasClass('bg-warning') &&
-          !valueBox.hasClass('bg-success') &&
-          !valueBox.hasClass('bg-danger')) {
-        valueBox.addClass('bg-primary');
-      }
-    }
 
     // handle data attributes in valueOutputSpan
     function handleValueOutput(valueOutput) {
@@ -2581,26 +1885,38 @@ window.FlexDashboardComponents.push({
       if (dataIcon)
         setIcon(dataIcon);
 
-      // color
+      // If valueBox(color=) was an accent color, this attr should
+      // be populated with the accent color and the relevant CSS comes
+      // in through HTML dependencies
+      var dataColorAccent = valueOutput.attr('data-color-accent');
+      var valueBoxClasses = "value-box-" + (["primary", "info", "danger", "warning", "success"].join(" value-box-"));
+      if (dataColorAccent) {
+        valueBox.removeClass(valueBoxClasses);
+        valueBox.addClass('value-box-' + dataColorAccent);
+      }
+
+      // If valueBox(color=) was a CSS color, these other data-color-*
+      // attrs will be populated
       var dataColor = valueOutput.attr('data-color');
       if (dataColor) {
-        if (dataColor.indexOf('bg-') === 0) {
-          valueBox.css('background-color', '');
-          if (!valueBox.hasClass(dataColor)) {
-             valueBox.removeClass('bg-primary bg-info bg-warning bg-danger bg-success');
-             valueBox.addClass(dataColor);
-          }
-        } else {
-          valueBox.removeClass('bg-primary bg-info bg-warning bg-danger bg-success');
-          valueBox.css('background-color', dataColor);
-        }
+        valueBox.removeClass(valueBoxClasses);
+        valueBox.css('background-color', dataColor);
+      }
+      var dataColorText = valueOutput.attr('data-color-text');
+      if (dataColorText) {
+        valueBox.find(".inner").css('color', dataColorText);
+      }
+      var dataColorIcon = valueOutput.attr('data-color-icon');
+      if (dataColorIcon) {
+        valueBox.find(".icon").css('color', dataColorIcon);
       }
 
       // url
       var dataHref = valueOutput.attr('data-href');
       if (dataHref) {
         valueBox.addClass('linked-value');
-        valueBox.on('click', function(e) {
+        valueBox.off('click.value-box');
+        valueBox.on('click.value-box', function(e) {
           window.FlexDashboardUtils.showLinkedValue(dataHref);
         });
       }
@@ -2625,8 +1941,6 @@ window.FlexDashboardComponents.push({
     );
   }
 });
-
-
 </script>
 
 <div id="dashboard-container">
@@ -2638,14 +1952,13 @@ window.FlexDashboardComponents.push({
 <table style="width:100%">
 <tr>
 <td>
-<center>
+<left>
 <h3>
 <strong>Somewhat long title of a very interesting poster</strong>
 </h3>
-</center>
+</left>
 </td>
 <td rowspan="2">
-<img src="img/logo.png" style="width:128px"></img>
 </td>
 </tr>
 <tr>
@@ -2660,7 +1973,6 @@ window.FlexDashboardComponents.push({
 </tr>
 </table>
 <hr>
-<p><strong>Background:</strong> Although several workflows are currently available for academic poster preparation, none of them are ideal. Commonly, point-and-click software is used to arrange poster content, regardless of the analysis pipeline. Most of these software tools are propietary, thus trapping our content. Typical free and script based tools such as <span class="math inline">\(\LaTeX\)</span> might not be appealing or seem as complex as using a point-and-click tool. This work shows a simple template to prepare posters in a free and reproducible workflow using R, rmarkdown, flexdashboard and webshot.</p>
 </div>
 </div>
 <div id="row-2" class="section level2" data-height="75">
@@ -2682,7 +1994,7 @@ window.FlexDashboardComponents.push({
 <ol style="list-style-type: decimal">
 <li>Clone <a href="https://github.com/odeleongt/flexdashboard-poster"><code>odeleongt/flexdashboard-poster</code></a> from github</li>
 <li>Install the required packages<br />
-<code>install.packages(&quot;rmarkdown&quot;, &quot;flexdashboard&quot;, &quot;webshot&quot;)</code></li>
+<code>install.packages("rmarkdown", "flexdashboard", "webshot")</code></li>
 <li>Install the PhantomJS library<br />
 <code>webshot::install_phantomjs()</code></li>
 <li>Edit the template to fit your needs</li>
@@ -2717,11 +2029,12 @@ git push origin gh-pages</code></pre>
 <div class="knitr-options" data-fig-width="576" data-fig-height="288">
 
 </div>
+<p><img src="../output/img/volcano-plot-1.png" width="576" data-figure-id=fig1 /></p>
 <div id="reproducible-results-with-r" class="section level4">
 <h4>Reproducible results with R</h4>
 <p>As we have come to expect, results from R computations can be included as well. Since adjusting figure positions will be almost always necesary, figures are by default saved to <code>output/img/</code> and not shown on the poster. You need to manually include them using a <img> tag as shown below.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html">**Fig. 1: Place the volcano figure where you please.**
-<span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;img/volcano-plot-1.png&quot;</span><span class="ot"> style=</span><span class="st">&quot;width:100%&quot;</span><span class="kw">&gt;&lt;/img&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1">**Fig. 1: Place the volcano figure where you please.**</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;img/volcano-plot-1.png&quot;</span><span class="ot"> style=</span><span class="st">&quot;width:100%&quot;</span><span class="kw">&gt;&lt;/img&gt;</span></a></code></pre></div>
 </div>
 <div id="output-for-printing" class="section level4">
 <h4>Output for printing</h4>
@@ -2777,20 +2090,24 @@ The time has come to face the fact that I must create a poster. It's been a whil
 <h2>Row 3</h2>
 <div id="fig.-2-place-the-volcano-figure-where-you-please." class="section level3" data-width="50">
 <h3><strong>Fig. 2: Place the volcano figure where you please.</strong></h3>
-<p><img src="img/volcano-plot-1.png" style="height:100%"></img></p>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<div id="htmlwidget-665f66785d739bd29d42" style="width:576px;height:460.8px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-665f66785d739bd29d42">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"syncWith","args":["maps"]}]},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="section-1" class="section level3 small" data-width="50">
 <h3></h3>
 <p><strong>References</strong></p>
 <div id="refs" class="references">
 <div id="ref-flexdashboard">
-<p>Allaire, JJ. 2017. <em>Flexdashboard: R Markdown Format for Flexible Dashboards</em>. <a href="https://CRAN.R-project.org/package=flexdashboard" class="uri">https://CRAN.R-project.org/package=flexdashboard</a>.</p>
+<p>Allaire, JJ. 2017. <em>Flexdashboard: R Markdown Format for Flexible Dashboards</em>. <a href="https://CRAN.R-project.org/package=flexdashboard">https://CRAN.R-project.org/package=flexdashboard</a>.</p>
 </div>
 <div id="ref-rmarkdown">
-<p>Allaire, JJ, Joe Cheng, Yihui Xie, Jonathan McPherson, Winston Chang, Jeff Allen, Hadley Wickham, Aron Atkins, Rob Hyndman, and Ruben Arslan. 2017. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>Allaire, JJ, Joe Cheng, Yihui Xie, Jonathan McPherson, Winston Chang, Jeff Allen, Hadley Wickham, Aron Atkins, Rob Hyndman, and Ruben Arslan. 2017. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="http://rmarkdown.rstudio.com">http://rmarkdown.rstudio.com</a>.</p>
 </div>
 <div id="ref-webshot">
-<p>Chang, Winston. 2016. <em>Webshot: Take Screenshots of Web Pages</em>. <a href="https://CRAN.R-project.org/package=webshot" class="uri">https://CRAN.R-project.org/package=webshot</a>.</p>
+<p>Chang, Winston. 2016. <em>Webshot: Take Screenshots of Web Pages</em>. <a href="https://CRAN.R-project.org/package=webshot">https://CRAN.R-project.org/package=webshot</a>.</p>
 </div>
 </div>
 </div>
@@ -2799,11 +2116,9 @@ The time has come to face the fact that I must create a poster. It's been a whil
 </div>
 
 <script>
-
-$(document).ready(function () {
-
+$(document).ready(function() {
   // add bootstrap table styles to pandoc tables
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed table-sm');
 
   // initialize mathjax
   var script = document.createElement("script");
@@ -2830,13 +2145,16 @@ bibliography: ../references/references.bib
 ```{r setup, include=FALSE}
 library(package = flexdashboard)
 library(package = tidyverse)
+library(leaflet)
+library(leaflet.minicharts)
+library(manipulateWidget)
 
 # Setup knitr
 knitr::opts_chunk$set(
   echo = FALSE, message = FALSE, warning = FALSE,
   # Save all figures in the output dir, you have to include them explicitly
-  # with an <img> tag
-  fig.path = "../output/img/", fig.show = "hide"
+  # with an &lt;img&gt; tag
+  fig.path = "../output/img/", fig.show = "show"
 )
 ```
 
@@ -2849,38 +2167,24 @@ knitr::opts_chunk$set(
 ###
 
 
-<table style="width:100%">
-<tr>
-  <td><center><h3>
+&lt;table style="width:100%"&gt;
+&lt;tr&gt;
+  &lt;td&gt;&lt;left&gt;&lt;h3&gt;
   **Somewhat long title of a very interesting poster**
-  </h3></center></td>
-  <td rowspan="2">
-  <img src="img/logo.png" style="width:128px"></img>
-  </td>
-</tr>
-<tr><td><center><a
+  &lt;/h3&gt;&lt;/left&gt;&lt;/td&gt;
+  &lt;td rowspan="2"&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;center&gt;&lt;a
   title="Universidad del Valle de Guatemala"
   href="mailto:odeleon@ces.uvg.edu.gt?Subject=Poster%20subject"
-  target="_top">
+  target="_top"&gt;
   Oscar de León
-  </a></center></td>
-</tr>
-</table> 
+  &lt;/a&gt;&lt;/center&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt; 
 
-<hr>
-
-**Background:** Although several workflows are currently available for academic
-poster preparation, none of them are ideal.
-Commonly, point-and-click software is used to arrange poster content,
-regardless of the analysis pipeline.
-Most of these software tools are propietary, thus trapping our content.
-Typical free and script based tools such as $\LaTeX$ might not be appealing
-or seem as complex as using a point-and-click tool.
-This work shows a simple template to prepare posters in a free and reproducible
-workflow using R, rmarkdown, flexdashboard and webshot.
-
-
-
+&lt;hr&gt;
 
 ## Row 2 {data-height=75}
 
@@ -2931,8 +2235,8 @@ git checkout gh-pages
 git checkout master output/*
 
 ## Copy files and clean up
-cp -r output/* . && rm -R output/*
-rmdir output && git reset HEAD
+cp -r output/* . &amp;&amp; rm -R output/*
+rmdir output &amp;&amp; git reset HEAD
 
 ## Add contents, commit and publish
 git add *
@@ -2947,7 +2251,7 @@ Here you would describe some amazing results.
 Since this poster is about making a poster, I show the last poster.
 
 **Fig. 1: Even the wisest cannot tell. For the mirror… shows many things…**
-<img src="poster.png" alt="What will I see?" style="width:100%"></img>
+&lt;img src="poster.png" alt="What will I see?" style="width:100%"&gt;&lt;/img&gt;
 
 
 
@@ -2963,11 +2267,11 @@ filled.contour(volcano)
 As we have come to expect, results from R computations can be included as well.
 Since adjusting figure positions will be almost always necesary,
 figures are by default saved to `output/img/` and not shown on the poster.
-You need to manually include them using a <img> tag as shown below.
+You need to manually include them using a &lt;img&gt; tag as shown below.
 
 ```html
 **Fig. 1: Place the volcano figure where you please.**
-<img src="img/volcano-plot-1.png" style="width:100%"></img>
+&lt;img src="img/volcano-plot-1.png" style="width:100%"&gt;&lt;/img&gt;
 ```
 
 
@@ -2995,7 +2299,7 @@ and not a single one satisfies my needs,
 I prepared this *other* tool to... nah it still is missing things.
 
 **Fig. 3: Some authoritative content**
-<img src="img/standards.png" style="width:100%"></img>
+&lt;img src="img/standards.png" style="width:100%"&gt;&lt;/img&gt;
 
 
 #### Limitations
@@ -3011,21 +2315,21 @@ the final rendered image
 - "I can't fit enough text/figures!"  
   ↑ that one's on you, nobody likes a crammed poster
 
-<hr>
+&lt;hr&gt;
 
 #### Contact information
 
 Oscar de León  
-<a
+&lt;a
   title="Universidad del Valle de Guatemala"
   href="mailto:odeleon@ces.uvg.edu.gt?Subject=Influenza%20incidence%20Guatemala"
   target="_top"
->odeleon@ces.uvg.edu.gt</a>  
-<a
+&gt;odeleon@ces.uvg.edu.gt&lt;/a&gt;  
+&lt;a
   title="GitHub profile"
   href="https://github.com/odeleongt"
   target="_blank"
->https://github.com/odeleongt</a>
+&gt;https://github.com/odeleongt&lt;/a&gt;
 
 
 
@@ -3033,16 +2337,20 @@ Oscar de León
 
 The time had come to face the fact that I was long overdue posting this template.
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The time has come to face the fact that I must create a poster. It&#39;s been a while. What&#39;s the least painful way to do this these days?</p>&mdash; Kara Woo <a href="https://twitter.com/kara_woo/status/856644892319137792">April 24, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;The time has come to face the fact that I must create a poster. It&amp;#39;s been a while. What&amp;#39;s the least painful way to do this these days?&lt;/p&gt;&amp;mdash; Kara Woo &lt;a href="https://twitter.com/kara_woo/status/856644892319137792"&gt;April 24, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
 
 
 ## Row 3 {data-height=10} 
 
 ### **Fig. 2: Place the volcano figure where you please.** {data-width=50}
 
-<img src="img/volcano-plot-1.png" style="height:100%"></img>
-
+```{r}
+map1 &lt;- leaflet() %&gt;% addTiles() %&gt;% syncWith("maps")
+map2 &lt;- leaflet() %&gt;% addTiles() %&gt;% syncWith("maps")
+#combineWidgets(map1, map2, ncol = 2)
+map1
+```
 
 
 ### {data-width=50 .small}
@@ -3053,14 +2361,29 @@ The time had come to face the fact that I was long overdue posting this template
 <script type="text/javascript">
 $(document).ready(function () {
   FlexDashboard.init({
-    theme: "cosmo",
     fillPage: true,
     orientation: "rows",
     storyboard: false,
     defaultFigWidth: 576,
     defaultFigHeight: 460,
     defaultFigWidthMobile: 360,
-    defaultFigHeightMobile: 460
+    defaultFigHeightMobile: 460,
+    resize_reload: true
+  });
+  var navbar = $(".navbar").first();
+  var body = $("body").first();
+  var sidebar = $(".section.sidebar").first();
+  function addNavbarPadding() {
+    var navHeight = navbar.outerHeight();
+    body.css("padding-top", (navHeight + 8) + "px");
+    sidebar.css("top", navHeight + "px");
+    var resizeEvent = window.document.createEvent("UIEvents");
+    resizeEvent.initUIEvent("resize", true, false, window, 0);
+    window.dispatchEvent(resizeEvent);
+  }
+  if (!window.Shiny) setTimeout(addNavbarPadding, 100);
+  $(document).on("shiny:idle", function() {
+    setTimeout(addNavbarPadding, 50);
   });
 });
 </script>

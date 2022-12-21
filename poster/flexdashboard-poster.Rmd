@@ -1,5 +1,5 @@
 ---
-title: "**Short title:** Flexdashboard poster template"
+title: "**Offence Type:** Possession of Weapon Offences"
 output: 
   flexdashboard::flex_dashboard:
     self_contained: false
@@ -13,13 +13,16 @@ bibliography: ../references/references.bib
 ```{r setup, include=FALSE}
 library(package = flexdashboard)
 library(package = tidyverse)
+library(leaflet)
+library(leaflet.minicharts)
+library(manipulateWidget)
 
 # Setup knitr
 knitr::opts_chunk$set(
   echo = FALSE, message = FALSE, warning = FALSE,
   # Save all figures in the output dir, you have to include them explicitly
   # with an <img> tag
-  fig.path = "../output/img/", fig.show = "hide"
+  fig.path = "../output/img/", fig.show = "show"
 )
 ```
 
@@ -27,45 +30,7 @@ knitr::opts_chunk$set(
 
 
 
-## Row 1 {data-height=15}
-
-###
-
-
-<table style="width:100%">
-<tr>
-  <td><center><h3>
-  **Somewhat long title of a very interesting poster**
-  </h3></center></td>
-  <td rowspan="2">
-  <img src="img/logo.png" style="width:128px"></img>
-  </td>
-</tr>
-<tr><td><center><a
-  title="Universidad del Valle de Guatemala"
-  href="mailto:odeleon@ces.uvg.edu.gt?Subject=Poster%20subject"
-  target="_top">
-  Oscar de León
-  </a></center></td>
-</tr>
-</table> 
-
-<hr>
-
-**Background:** Although several workflows are currently available for academic
-poster preparation, none of them are ideal.
-Commonly, point-and-click software is used to arrange poster content,
-regardless of the analysis pipeline.
-Most of these software tools are proprietary, thus trapping our content.
-Typical free and script based tools such as $\LaTeX$ might not be appealing
-or seem as complex as using a point-and-click tool.
-This work shows a simple template to prepare posters in a free and reproducible
-workflow using R, rmarkdown, flexdashboard and webshot.
-
-
-
-
-## Row 2 {data-height=75}
+## Row 1 {data-height=75}
 
 ### **Methods**
 
@@ -220,12 +185,16 @@ The time had come to face the fact that I was long overdue posting this template
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
-## Row 3 {data-height=10} 
+## Row 2 {data-height=10} 
 
 ### **Fig. 2: Place the volcano figure where you please.** {data-width=50}
 
-<img src="img/volcano-plot-1.png" style="height:100%"></img>
-
+```{r}
+map1 <- leaflet() %>% addTiles() %>% syncWith("maps")
+map2 <- leaflet() %>% addTiles() %>% syncWith("maps")
+#combineWidgets(map1, map2, ncol = 2)
+map1
+```
 
 
 ### {data-width=50 .small}
