@@ -1,0 +1,256 @@
+---
+title: "subpage.Rmd"
+author: "ma"
+date: "25/12/2022"
+output: html_document
+---
+
+`r paste0('# ', Offence_group, '{data-navmenu="Select offence groups"}')`
+
+`r shiny::tags$h1(Offence_group, align = "center", style="font-size:18px, font-thickness: 800%, color: #404040, font-weight: bold")`
+
+
+```{r, include=FALSE}
+
+#font-family: Courier; font-size:16px; font-weight:bold
+
+# A SpatialPointsDataFrame for the map.
+# Set a group name to share data points with the table.
+brew_sp <- SharedData$new(subpage_data, group = "idd")
+
+# A regular data frame (without coordinates) for the table.
+# Use the same group name as the map data.
+brew_data <- as_tibble(subpage_data) %>%
+  dplyr::select(brewery, address, village, founded) %>%
+  data.frame()
+  #SharedData$new(group = "id") #to do the joining
+
+#head(brew_data)
+
+map <- leaflet(brew_sp) %>%
+  addTiles() %>%
+  addMarkers()
+
+##map
+
+#
+tbl <- reactable(
+  brew_data[1:32,] %>%
+    dplyr::mutate(Name = substr(village, 1, 5)) %>%
+    dplyr::mutate(founded2 = founded-1800)%>%
+    dplyr::filter(!is.na(founded2))%>%
+    dplyr::select(Name, founded2)%>%
+    dplyr::mutate(founded2 = as.numeric(if_else(Name == "Adels", paste("0"), paste(founded2)))) %>%
+    tibble::rownames_to_column("Sn")%>%
+    dplyr::mutate(Sn=paste("#", Sn, sep="")),
+  #selection = "multiple",
+  onClick = "select",
+  # borderless = TRUE,
+  # highlight = TRUE,
+  # rowStyle = list(cursor = "pointer"),
+  #defaultSelected = c(1:10),
+  #defaultPageSize = 20,
+  columns = list(
+  founded2 = colDef(
+      cell = function(value) {
+       if (value > 0) {
+        img_src <- image_uri(paste(getwd(), "img/up_arrow.jpg", sep="/"))
+        image <- img(src = img_src, style = "height: 25px;", alt = value)
+        tagList(
+        div(style = "display: inline-block; width: 25px", image),
+        paste0("+", value, "%")
+        )} else if (value < 0) {
+        img_src <- image_uri(paste(getwd(), "img/down_arrow.jpg", sep="/"))
+        image <- img(src = img_src, style = "height: 25px;", alt = value)
+        tagList(
+        div(style = "display: inline-block; width: 25px", image),
+        paste0(value, "%")
+    )} else
+        # img_src <- image_uri(paste(getwd(), "img/dash.jpg", sep="/"))
+        # image3 <- img(src = img_src, style = "height: 15px;", alt = value)
+        # tagList(
+        # div(style = "display: inline-block; width: 20px", image3),
+        paste0(value, "%")
+        #)
+  },
+    #align = "left",
+      style = function(value) {
+        color <- if (value > 0) {
+          "#e00000"
+        } else if (value < 0) {
+          "#008000"
+        } else "blue"
+        list(fontWeight = 600, color = color)
+      }
+    )
+  ),
+ #rownames = TRUE,
+  # pagination = FALSE,
+  #searchable = TRUE,
+ pageSizeOptions = c(15, 30),
+ defaultPageSize = 15,
+ showPagination = TRUE,
+ fullWidth = TRUE,
+ showSortable = TRUE,
+  height = 600,
+  wrap = FALSE,
+  compact = FALSE,
+  highlight = TRUE,
+  bordered = TRUE,
+  theme = reactableTheme(
+    borderColor = "#dfe2e5",
+    stripedColor = "#f6f8fa",
+    highlightColor = "#f0f5f9",
+    cellPadding = "8px 12px",
+    style = list(fontFamily = "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"),
+    searchInputStyle = list(width = "100%")
+    ),
+  minRows = 8
+)
+#
+
+tbl
+
+```
+
+Column {.sidebar data-width=200}
+-----------------------------------
+
+## Row 1 {data-height=80}
+
+### **Trend and Change Points** {data-width=1200}
+
+```{r, include=TRUE}
+# mm1 <- htmltools::browsable(
+#   htmltools::tagList(map, tbl)
+#   #htmltools::tagAppendChild(tag1, tbl)
+# )
+# mm1
+
+```
+
+
+### **Summary**
+
+```{r, include=TRUE}
+#Create table that shows
+#Overall trend
+#Change points
+```
+
+## Row 2 {data-height=170}
+
+### **Offence per 1,000 people (LSOA units)**{data-width=200}
+
+```{r eval=FALSE}
+
+#render map
+map3 <- leaflet() %>%
+  addTiles %>%
+  addPolygons(data =   bckgrnd2, #
+              color="white",
+              #label = ~FILE_NAME,
+              labelOptions = labelOptions(
+                noHide = T, textOnly = T,
+                textsize = 22,
+                style = list('color' = "white")
+              ),
+              ##color = ~colorQuantile("gray", gm_la$FILE_NAME)(FILE_NAME),
+              fillOpacity = 1,
+              group = "background")%>%
+ #addProviderTiles(providers$CartoDB.Positron) %>%
+  addPolygons(data = gm_la %>% filter(FILE_NAME == "ROCHDALE"), weight = 1,  #all la boundaries
+              color="black",
+              #label = ~FILE_NAME,
+              labelOptions = labelOptions(
+                noHide = T, textOnly = T,
+                textsize = 22,
+                style = list('color' = "black")
+              ),
+              ##color = ~colorQuantile("gray", gm_la$FILE_NAME)(FILE_NAME),
+              fillOpacity = 0.1,
+              group = "la")
+  # addTiles %>%
+  # setView(-2.271, 53.504, zoom = 1.5) %>% syncWith("maps")%>%
+  # addPolygons(data =   gm_bdry, #
+  #             color="white",
+  #             #label = ~FILE_NAME,
+  #             labelOptions = labelOptions(
+  #               noHide = T, textOnly = T,
+  #               textsize = 22,
+  #               style = list('color' = "white")
+  #             ),
+  #             ##color = ~colorQuantile("gray", gm_la$FILE_NAME)(FILE_NAME),
+  #             fillOpacity = 1,
+  #             group = "background")#%>%
+
+map3
+```
+
+```{r, include=TRUE}
+mm2 <- htmltools::browsable(
+  #attachDependencies(map,
+  htmltools::tagList(map, tbl))
+  #htmltools::tagAppendChild(tag1, tbl)
+#)
+
+mm2
+```
+
+
+### **Direction of Crime rates in Neighbourhoods (Sorted by most recent year)**
+
+```{r, include=TRUE, fig.width=2, fig.height=2}
+
+# mm3 <-  htmltools::tagList(tbl)
+# mm3
+
+mm3 <- htmltools::browsable(
+  htmltools::tagList(tbl))
+
+mm3
+
+
+```
+
+## Row 3 {data-height=30}
+
+### Key map feature
+
+### Further details
+
+
+
+## Row 4 {data-height=100}
+
+### **Age-Sex Profile**
+
+### **Age-Ethnicity Profile**
+
+### **Age-Occupation Profile**
+
+
+## Row 5 {data-height=20}
+
+### Description
+
+### Description
+
+### Description
+
+
+<!-- ```{r, include=TRUE, fig.width=2, fig.height=2} -->
+
+<!-- #https://stackoverflow.com/questions/55011733/modify-text-size-in-shiny -->
+
+<!-- # mm3 <-  htmltools::tagList(tbl) -->
+<!-- # mm3 -->
+
+<!-- mm3 <- htmltools::browsable( -->
+<!--   htmltools::tagList(tbl)) -->
+
+<!-- mm3 -->
+
+
+<!-- ``` -->
+
